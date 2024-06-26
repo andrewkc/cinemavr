@@ -4,22 +4,19 @@ using TMPro;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
-//using System.Security.Cryptography;
 
 public class AuthHandler : MonoBehaviour
 {
     const string TITLE_ID = "94004";
+    [SerializeField] GameObject registerTab, loginTab;
 
     #region Register
     [Header("Register UI:")]
     [SerializeField] TMP_InputField registerEmail;
     [SerializeField] TMP_InputField registerUsername;
     [SerializeField] TMP_InputField registerPassword;
+    [SerializeField] GameObject checkRegister;
 
-    void Start() 
-    {
-        Debug.Log("Hello World");
-    }
     public void OnRegisterPressed() 
     {
         Debug.Log("Step 1");
@@ -41,17 +38,25 @@ public class AuthHandler : MonoBehaviour
     }
     private void OnRegisterRequestSuccess(RegisterPlayFabUserResult result) {
         Debug.Log("User Registered");
+        checkLogin.SetActive(false);
+        checkRegister.SetActive(true);  
+    }
+
+    public void RegisterTab() {
+        registerTab.SetActive(true);
+        loginTab.SetActive(false);
     }
     #endregion
 
     #region Login
     [Header("Login UI:")]
-    // [SerializeField] TMP_InputField registerEmail;
     [SerializeField] TMP_InputField loginUsername;
     [SerializeField] TMP_InputField loginPassword;
+    [SerializeField] GameObject checkLogin;
 
     public void OnLoginPressed()
     {
+	   Debug.Log("Step 2");
         Login(loginUsername.text, loginPassword.text);
     }
 
@@ -65,12 +70,26 @@ public class AuthHandler : MonoBehaviour
         };
         PlayFabSettings.staticSettings.TitleId = TITLE_ID;
         PlayFabClientAPI.LoginWithPlayFab(loginRequest, OnLoginRequestSuccess, PlayFabFailure);
+        Debug.Log(username + " " + password);
     }
     private void OnLoginRequestSuccess(LoginResult result) {
         Debug.Log("User Logged");
+        checkLogin.SetActive(true);
+        checkRegister.SetActive(false);   
+    }
+    
+    public void LoginTab() {
+        registerTab.SetActive(false);
+        loginTab.SetActive(true);
     }
     #endregion
-    
+
+    void Start() 
+    {
+        checkLogin.SetActive(false);
+        checkRegister.SetActive(false);
+        Debug.Log("Hello World");
+    }
     private string Encrypt(string pw) 
     {
         System.Security.Cryptography.MD5CryptoServiceProvider x = new System.Security.Cryptography.MD5CryptoServiceProvider();
