@@ -8,7 +8,7 @@ using PlayFab.ClientModels;
 public class AuthHandler : MonoBehaviour
 {
     const string TITLE_ID = "94004";
-    [SerializeField] GameObject registerTab, loginTab;
+    [SerializeField] GameObject registerTab, loginTab, canvas, menu;
 
     #region Register
     [Header("Register UI:")]
@@ -76,6 +76,8 @@ public class AuthHandler : MonoBehaviour
         Debug.Log("User Logged");
         checkLogin.SetActive(true);
         checkRegister.SetActive(false);   
+        canvas.SetActive(false);
+        menu.SetActive(true);
     }
     
     public void LoginTab() {
