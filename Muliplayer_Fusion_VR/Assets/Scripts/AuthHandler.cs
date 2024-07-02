@@ -56,7 +56,7 @@ public class AuthHandler : MonoBehaviour
 
     public void OnLoginPressed()
     {
-	   Debug.Log("Step 2");
+	    Debug.Log("Step 2");
         Login(loginUsername.text, loginPassword.text);
     }
 
@@ -92,6 +92,15 @@ public class AuthHandler : MonoBehaviour
         checkRegister.SetActive(false);
         Debug.Log("Hello World");
     }
+
+    //
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.V)) {
+            OnLoginPressed();
+        }
+    }
+    //
     private string Encrypt(string pw) 
     {
         System.Security.Cryptography.MD5CryptoServiceProvider x = new System.Security.Cryptography.MD5CryptoServiceProvider();

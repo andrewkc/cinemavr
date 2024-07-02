@@ -16,7 +16,16 @@ public class ConnectionManager : MonoBehaviour
 
     public void JoinRoom()
     {
+        Debug.Log("ee0");
         NetworkManager.Instance.JoinSession(inputField.text);
-
+        Debug.Log("ee1");
     }
+    //
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Z)) {
+            CreateRoom();
+        }
+    }
+    //
 }

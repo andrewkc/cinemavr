@@ -62,7 +62,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
     {
         //Debug.Log("paso 2");
         Runner = Instantiate(_runnerPrefab, transform).GetComponent<NetworkRunner>();
-        //Runner.AddCallbacks(this);
+        Runner.AddCallbacks(this);
     }
 
     public async Task LoadScene()
