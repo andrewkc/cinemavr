@@ -33,13 +33,15 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
     private void Start()
     {
         // fixing the server to a perticular region
-        Fusion.Photon.Realtime.PhotonAppSettings.Global.AppSettings.FixedRegion = "asia";
+        Fusion.Photon.Realtime.PhotonAppSettings.Global.AppSettings.FixedRegion = "us";
     }
 
     public async void CreateSession(string roomCode)
     {
+        Debug.Log("llega 1");
         //Create Runner
         CreateRunner();
+        Debug.Log("llega 2");
         //Load Scene
         await LoadScene();
         //ConnectSession
@@ -58,8 +60,9 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
 
     public void CreateRunner()
     {
+        //Debug.Log("paso 2");
         Runner = Instantiate(_runnerPrefab, transform).GetComponent<NetworkRunner>();
-        Runner.AddCallbacks(this);
+        //Runner.AddCallbacks(this);
     }
 
     public async Task LoadScene()
@@ -112,6 +115,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
     #region INetworkRunnerCallbacks (Unused)
     public void OnConnectedToServer(NetworkRunner runner)
     {
+        Debug.Log("AAAAAAA");
     }
 
     public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)

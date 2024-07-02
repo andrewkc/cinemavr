@@ -9,7 +9,9 @@ public class ConnectionManager : MonoBehaviour
 
     public void CreateRoom()
     {
+        Debug.Log("ww0");
         NetworkManager.Instance.CreateSession(inputField.text);
+        Debug.Log("ww1");
     }
 
     public void JoinRoom()

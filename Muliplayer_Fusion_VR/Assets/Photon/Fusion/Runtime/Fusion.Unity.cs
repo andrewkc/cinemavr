@@ -2450,7 +2450,7 @@ namespace Fusion {
       } finally {
         _builder.Clear();
       }
-
+       Debug.Log("paso 1");
       switch (logType) {
         case LogType.Error:
           Debug.LogError(fullMessage, IsInMainThread ? obj : null);
