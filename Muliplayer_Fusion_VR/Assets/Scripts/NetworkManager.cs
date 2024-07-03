@@ -67,7 +67,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
 
     public async Task LoadScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1); //correct
 
         while (!asyncLoad.isDone)
         {
@@ -82,7 +82,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
             GameMode = GameMode.Shared,
             SessionName = SessionName,
             SceneManager = GetComponent<NetworkSceneManagerDefault>(),
-            Scene = SceneRef.FromIndex(1)
+            Scene = SceneRef.FromIndex(1) // correct
 
         };
         await Runner.StartGame(args);
