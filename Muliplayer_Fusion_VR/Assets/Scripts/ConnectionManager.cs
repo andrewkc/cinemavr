@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement; //
 
 public class ConnectionManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class ConnectionManager : MonoBehaviour
     public void CreateRoom()
     {
         Debug.Log("ww0"); //
-        NetworkManager.Instance.CreateSession(inputField.text);
+        Data.roomName = inputField.text;
+        SceneManager.LoadScene("Untitled");
+        // NetworkManager.Instance.CreateSession(inputField.text);
         Debug.Log("ww1"); //
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 
+
 public class AuthHandler : MonoBehaviour
 {
     const string TITLE_ID = "94004";
