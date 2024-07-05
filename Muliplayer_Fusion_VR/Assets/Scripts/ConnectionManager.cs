@@ -9,16 +9,16 @@ public class ConnectionManager : MonoBehaviour
 
     public void CreateRoom()
     {
-        Debug.Log("ww0");
+        Debug.Log("ww0"); //
         NetworkManager.Instance.CreateSession(inputField.text);
-        Debug.Log("ww1");
+        Debug.Log("ww1"); //
     }
 
     public void JoinRoom()
     {
-        Debug.Log("ee0");
+        Debug.Log("ee0"); //
         NetworkManager.Instance.JoinSession(inputField.text);
-        Debug.Log("ee1");
+        Debug.Log("ee1"); //
     }
     //
     void Update()

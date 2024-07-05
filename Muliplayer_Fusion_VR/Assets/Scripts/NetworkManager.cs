@@ -26,7 +26,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject); //
         }
     }
 
@@ -38,10 +38,10 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
 
     public async void CreateSession(string roomCode)
     {
-        Debug.Log("llega 1");
+        Debug.Log("llega 1"); //
         //Create Runner
         CreateRunner();
-        Debug.Log("llega 2");
+        Debug.Log("llega 2"); //
         //Load Scene
         await LoadScene();
         //ConnectSession
@@ -58,16 +58,20 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         await Connect(roomCode);
     }
 
+    // solo se debe ejecutar una vez para crear solo una vez el RunnerNetwork
     public void CreateRunner()
     {
         //Debug.Log("paso 2");
+        //
+        
+        //
         Runner = Instantiate(_runnerPrefab, transform).GetComponent<NetworkRunner>();
         Runner.AddCallbacks(this);
     }
 
     public async Task LoadScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1); //correct
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1); // correct
 
         while (!asyncLoad.isDone)
         {
@@ -85,7 +89,9 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
             Scene = SceneRef.FromIndex(1) // correct
 
         };
+        Debug.Log("aaaaaaaaaa");
         await Runner.StartGame(args);
+        Debug.Log("aaaaaaaaaa");
     }
 
     #region INetworkRunnerCallbacks
@@ -115,7 +121,6 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
     #region INetworkRunnerCallbacks (Unused)
     public void OnConnectedToServer(NetworkRunner runner)
     {
-        Debug.Log("AAAAAAA");
     }
 
     public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
