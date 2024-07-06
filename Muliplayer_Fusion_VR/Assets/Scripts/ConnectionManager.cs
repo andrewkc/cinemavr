@@ -12,7 +12,7 @@ public class ConnectionManager : MonoBehaviour
     {
         Debug.Log("ww0"); //
         //Data.roomName = inputField.text;
-        SceneManager.LoadScene("Untitled");
+        SceneManager.LoadScene("MultiPlayer");
         //NetworkManager.Instance.CreateSession(inputField.text);
         Debug.Log("ww1"); //
     }
@@ -20,7 +20,10 @@ public class ConnectionManager : MonoBehaviour
     public void JoinRoom()
     {
         Debug.Log("ee0"); //
-        NetworkManager.Instance.JoinSession(inputField.text);
+        //SceneManager.LoadScene("Untitled");
+        SceneManager.LoadScene("MultiPlayer");
+        //SceneManager.LoadScene("MultiPlayer");
+        //NetworkManager.Instance.JoinSession(inputField.text);
         Debug.Log("ee1"); //
     }
     //

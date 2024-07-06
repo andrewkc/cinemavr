@@ -5659,7 +5659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eca8834e3007f740962092fb46de3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _runnerPrefab: {fileID: 3138037553322272605, guid: d4007034aac2c924ba97a86a73ccd9f8, type: 3}
+  playerPrefab: {fileID: 3593694600963381053, guid: 32125896af79c1c4999274fa438e613f, type: 3}
+  lobbyname: 123
 --- !u!114 &1536507792
 MonoBehaviour:
   m_ObjectHideFlags: 0

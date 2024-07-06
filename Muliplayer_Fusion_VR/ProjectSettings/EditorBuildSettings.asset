@@ -23,9 +23,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/StartGame2.unity
     guid: b477ba44ae56725418b3902edf069f2a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing.unity
     guid: 97cc061addf5a6f4fb0e7317ffe093ee
+  - enabled: 0
+    path: Assets/Scenes/MultiPlayerBack.unity
+    guid: 82c7bdf1766ae7441bca4939f9ea0c78
+  - enabled: 0
+    path: Assets/Scenes/MultiPlayer.unity
+    guid: 24c612ef4de58394ab1e2484a26e5a1b
+  - enabled: 1
+    path: Assets/Scenes/New Scene.unity
+    guid: 5d41aa36bf281d24ba87ab0bf45921da
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b69329261c18eef4b9a7b32869c5f055, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 315d4aca8ea19114daf913f6560fb80a, type: 2}
