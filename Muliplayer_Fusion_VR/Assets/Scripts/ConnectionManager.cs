@@ -11,9 +11,9 @@ public class ConnectionManager : MonoBehaviour
     public void CreateRoom()
     {
         Debug.Log("ww0"); //
-        Data.roomName = inputField.text;
+        //Data.roomName = inputField.text;
         SceneManager.LoadScene("Untitled");
-        // NetworkManager.Instance.CreateSession(inputField.text);
+        //NetworkManager.Instance.CreateSession(inputField.text);
         Debug.Log("ww1"); //
     }
 
