@@ -12,7 +12,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
 
     public GameObject playerPrefab;
     public static NetworkRunner Runner;
-    private string lobbyname;
+    private string lobbyname = ValorForm.text;
 
     private void Awake()
     {
@@ -29,6 +29,8 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         // fixing the server to a perticular region
         //Runner.Spawn()
         //Runner.JoinSessionLobby(SessionLobby.Shared, lobbyname);
+        Debug.Log(lobbyname);
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
         Runner.StartGame(new StartGameArgs(){
             SessionName = lobbyname,
             GameMode=GameMode.Shared,

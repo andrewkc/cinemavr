@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using Meta.XR.MRUtilityKit;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement; //
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; //
 
 public class ConnectionManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField inputField;
-
+        [SerializeField] public TMP_InputField inputField;
+        public static ConnectionManager connectionManag;
+   
+    
     public void CreateRoom()
     {
-        Debug.Log("ww0"); //
+        Debug.Log(inputField.text); //
         //Data.roomName = inputField.text;
         SceneManager.LoadScene("MultiPlayer");
-        //NetworkManager.Instance.CreateSession(inputField.text);
+        ValorForm.text = inputField.text;
+        // NetworkManager.Instance.CreateSession(inputField.text);
         Debug.Log("ww1"); //
     }
 
     public void JoinRoom()
     {
         Debug.Log("ee0"); //
-        //SceneManager.LoadScene("Untitled");
         SceneManager.LoadScene("MultiPlayer");
-        //SceneManager.LoadScene("MultiPlayer");
+        ValorForm.text = inputField.text;
         //NetworkManager.Instance.JoinSession(inputField.text);
         Debug.Log("ee1"); //
     }
