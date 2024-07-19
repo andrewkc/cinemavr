@@ -11,7 +11,7 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
 {
 
     public GameObject playerPrefab;
-    public static NetworkRunner Runner;
+    public NetworkRunner Runner;
     private string lobbyname = ValorForm.text;
 
     private void Awake()
