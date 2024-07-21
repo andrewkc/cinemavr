@@ -9,33 +9,23 @@ using UnityEngine.UI; //
 public class ConnectionManager : MonoBehaviour
 {
         [SerializeField] public TMP_InputField inputField;
-        public static ConnectionManager connectionManag;
-   
-    
+        [SerializeField] public TMP_InputField UserName;
+    //public static ConnectionManager connectionManag;
+
+
     public void CreateRoom()
     {
         Debug.Log(inputField.text); //
         //Data.roomName = inputField.text;
-        SceneManager.LoadScene("MultiPlayer");
+        SceneManager.LoadSceneAsync("TestingOnline");
         ValorForm.text = inputField.text;
+        ValorForm.username = UserName.text;
         // NetworkManager.Instance.CreateSession(inputField.text);
         Debug.Log("ww1"); //
     }
 
-    public void JoinRoom()
-    {
-        Debug.Log("ee0"); //
-        SceneManager.LoadScene("MultiPlayer");
-        ValorForm.text = inputField.text;
-        //NetworkManager.Instance.JoinSession(inputField.text);
-        Debug.Log("ee1"); //
-    }
+   
     //
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Z)) {
-            CreateRoom();
-        }
-    }
+    
     //
 }

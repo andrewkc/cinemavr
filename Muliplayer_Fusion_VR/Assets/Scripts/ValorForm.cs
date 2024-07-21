@@ -12,6 +12,7 @@ using Unity.VisualScripting; //
 public class ValorForm : MonoBehaviour
 {
     public static string text = "xddd";
+    public static string username = "testing10";
     void Update()
     {
         Debug.Log(text);

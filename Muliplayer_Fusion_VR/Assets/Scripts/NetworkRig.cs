@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using TMPro;
 
 public class NetworkRig : NetworkBehaviour
 {
+    [SerializeField] TextMeshProUGUI Username;
+    
     public bool IsLocalNetworkRig => Object.HasStateAuthority;
 
     [Header("RigComponents")]
@@ -25,7 +28,7 @@ public class NetworkRig : NetworkBehaviour
     public override void Spawned()
     {
         base.Spawned();
-
+        Username.text = ValorForm.username;
         if (IsLocalNetworkRig)
         {
             hardwareRig = FindObjectOfType<HardwareRig>();

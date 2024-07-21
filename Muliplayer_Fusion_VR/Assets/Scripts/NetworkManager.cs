@@ -9,10 +9,11 @@ using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
 {
-
-    public GameObject playerPrefab;
+    
+    public GameObject playerPrefab;  // Array to hold your player prefabs
     public NetworkRunner Runner;
     private string lobbyname = ValorForm.text;
+    
 
     private void Awake()
     {
@@ -21,12 +22,11 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         {
             Runner = gameObject.AddComponent<NetworkRunner>();
         }
-        
     }
 
     private void Start()
     {
-        // fixing the server to a perticular region
+        // fixing the server to a particular region
         //Runner.Spawn()
         //Runner.JoinSessionLobby(SessionLobby.Shared, lobbyname);
         Debug.Log(lobbyname);
@@ -34,21 +34,19 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         Runner.StartGame(new StartGameArgs(){
             SessionName = lobbyname,
             GameMode=GameMode.Shared,
-                 
         });
         //Debug.Log(ValorForm.text);
     }
 
-    
-
     #region INetworkRunnerCallbacks
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        if(player== runner.LocalPlayer)
+        if (player == runner.LocalPlayer)
         {
             NetworkObject playerObj = runner.Spawn(playerPrefab, Vector3.zero);
             runner.SetPlayerObject(player, playerObj);
         }
+        
         Debug.Log("<<<<<<<< A new player joined to the session >>>>>>>");
         Debug.Log("<<<<<<< IsMasterClient >>>>>>>>" + player.IsMasterClient);
         Debug.Log("<<<<<<< PlayerID >>>>>>>>" + player.PlayerId);
@@ -63,10 +61,11 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         Debug.Log("<<<<<<< IsRealPlayer >>>>>>>>" + player.IsRealPlayer);
     }
 
+
+
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
     {
         Debug.Log("<<<<<<< Runner Shutdown >>>>>>>>");
-
     }
     #endregion
 
@@ -111,8 +110,6 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
     {
     }
 
-    
-
     public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress)
     {
     }
@@ -134,10 +131,8 @@ public class NetworkManager : MonoBehaviour, INetworkRunnerCallbacks
         Debug.Log("XD");
     }
 
-
     public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)
     {
     }
     #endregion
-
 }
